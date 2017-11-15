@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import <ModelIO/ModelIO.h>
+#import <SceneKit/ModelIO.h>
 
 @interface ViewController () <ARSCNViewDelegate>
 
@@ -27,10 +29,11 @@
     self.sceneView.showsStatistics = YES;
     
     // Create a new scene
-    SCNScene *scene = [SCNScene sceneNamed:@"art.scnassets/ship.scn"];
+    SCNScene *scene = [SCNScene sceneNamed:@"art.scnassets/StepToFuture.dae"];
     
     // Set the scene to the view
-    self.sceneView.scene = scene;
+    //self.sceneView.scene = scene;
+       [self.sceneView.scene.rootNode addChildNode:scene.rootNode];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
